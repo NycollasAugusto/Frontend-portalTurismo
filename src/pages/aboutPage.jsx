@@ -5,18 +5,17 @@ import AboutHero from "../components/aboutHero";
 
 const AboutPage = () => {
   return (
-    <>
-    <div className="flex flex-col min-h-screen bg-dbz-gradient text-white font-dbz">
+    <div className="flex flex-col min-h-screen">
       <Navbar />
-
+      
       <main className="flex-grow">
         <AboutHero />
+        {/* Adicione aqui mais seções, se desejar */}
       </main>
-
+      
       <Footer />
     </div>
-    </>
-  );
-};
+  )
+}
 
-export default AboutPage;
+export default AboutPage
