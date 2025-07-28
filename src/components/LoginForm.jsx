@@ -1,100 +1,75 @@
 import React, { useState } from "react";
-import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import axios from 'axios';
+import { useNavigate } from "react-router-dom"; // Adicionado
 
 const LoginForm = () => {
-  const [email, setEmail] = useState("");
-  const [senha, setSenha] = useState("");
-  const [loading, setLoading] = useState(false);
-  const navigate = useNavigate();
+  const [email, setEmail] = useState('');
+  const [senha, setSenha] = useState('');
+  const navigate = useNavigate(); // Adicionado
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setLoading(true);
-
     try {
       const response = await axios.post("http://localhost:5000/api/auth/login", {
         email,
-        password: senha,
+        password: senha
       });
 
-      localStorage.setItem("user", JSON.stringify(response.data));
-      alert("✅ Usuário logado com sucesso!");
-      navigate("/");
+      const userData = response.data;
+      localStorage.setItem("user", JSON.stringify(userData));
+
+      alert("Usuário logado com sucesso!!");
+      navigate("/"); // Corrigido
     } catch (error) {
       if (error.response) {
-        alert("❌ Email ou senha inválidos.");
+        alert("Erro no email ou senha");
       } else {
-        alert("⚠️ Erro ao conectar ao servidor.");
+        alert("Erro ao conectar ao servidor");
       }
-    } finally {
-      setLoading(false);
     }
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-100 to-gray-300">
-      <div className="bg-white p-10 rounded-xl shadow-2xl w-full max-w-md">
-        <h2 className="text-3xl font-bold text-center mb-8 text-gray-800">Bem-vindo de volta 👋</h2>
-
-        <form onSubmit={handleSubmit} className="space-y-6">
-          <div className="relative">
+    <>
+      <div className="bg-white p-8 rounded-2xl shadow-lg w-full max-w-md">
+        <h2 className="text-2xl font-semibold text-center mb-6">Login</h2>
+        <form onSubmit={handleSubmit}> {/* Corrigido aqui */}
+          <div>
+            <label>E-mail</label>
             <input
               id="email"
               type="email"
+              name="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
-              className="peer w-full border border-gray-300 rounded-md px-3 pt-5 pb-2 focus:outline-none focus:ring-2 focus:ring-orange-400 focus:border-transparent text-sm"
-              placeholder=" "
+              className="w-full border-gray-300 p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-500 text-sm sm:text-base"
+              placeholder="Digite seu email"
             />
-            <label
-              htmlFor="email"
-              className="absolute text-gray-500 text-sm left-3 top-2 peer-placeholder-shown:top-3.5 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 transition-all"
-            >
-              E-mail
-            </label>
           </div>
-
-          <div className="relative">
+          <div className="mt-4">
+            <label>Senha</label>
             <input
               id="password"
               type="password"
+              name="password"
               value={senha}
               onChange={(e) => setSenha(e.target.value)}
               required
-              className="peer w-full border border-gray-300 rounded-md px-3 pt-5 pb-2 focus:outline-none focus:ring-2 focus:ring-orange-400 focus:border-transparent text-sm"
-              placeholder=" "
+              className="w-full border-gray-300 p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-500 text-sm sm:text-base"
+              placeholder="Digite sua senha"
             />
-            <label
-              htmlFor="password"
-              className="absolute text-gray-500 text-sm left-3 top-2 peer-placeholder-shown:top-3.5 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 transition-all"
-            >
-              Senha
-            </label>
           </div>
-
-          <button
-            type="submit"
-            disabled={loading}
-            className={`w-full py-2 rounded-md font-semibold text-white transition-all ${
-              loading
-                ? "bg-gray-400 cursor-not-allowed"
-                : "bg-orange-500 hover:bg-orange-600"
-            }`}
-          >
-            {loading ? "Entrando..." : "Entrar"}
+          <button type="submit" className="mt-6 w-full bg-orange-400 text-white py-2 px-6 rounded-b-lg hover:bg-gray-600 transition">
+            Entrar
           </button>
         </form>
-
         <p className="mt-6 text-center text-sm text-gray-600">
           Não tem conta?
-          <a href="/register" className="text-orange-600 hover:underline ml-1">
-            Cadastre-se
-          </a>
+          <a href="/register" className="text-gray-600 hover:underline p-2">Cadastre-se</a>
         </p>
       </div>
-    </div>
+    </>
   );
 };
 
