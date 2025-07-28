@@ -58,7 +58,7 @@ const AboutPage = () => {
           initial={{ opacity: 0, y: -50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 2 }}
-        >Achei bastante  interessante a parte pela a qual eu poder criar minha própria página de um único 
+        >Achei bastante  interessante a parte pela a qual eu poder criar minha própria página de um jeito único 
         </Description>
       </TextWrapper>
     </Container>
