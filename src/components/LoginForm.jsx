@@ -33,7 +33,7 @@ const LoginForm = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-100 to-gray-300">
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-orange-400 to-orange-600">
       <div className="bg-white p-10 rounded-xl shadow-2xl w-full max-w-md">
         <h2 className="text-3xl font-bold text-center mb-8 text-gray-800">Bem-vindo de volta 👋</h2>
 
@@ -45,7 +45,7 @@ const LoginForm = () => {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
-              className="peer w-full border border-gray-300 rounded-md px-3 pt-5 pb-2 focus:outline-none focus:ring-2 focus:ring-orange-400 focus:border-transparent text-sm"
+              className="peer w-full border border-gray-300 rounded-md px-3 pt-5 pb-2 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent text-sm"
               placeholder=" "
             />
             <label
@@ -63,7 +63,7 @@ const LoginForm = () => {
               value={senha}
               onChange={(e) => setSenha(e.target.value)}
               required
-              className="peer w-full border border-gray-300 rounded-md px-3 pt-5 pb-2 focus:outline-none focus:ring-2 focus:ring-orange-400 focus:border-transparent text-sm"
+              className="peer w-full border border-gray-300 rounded-md px-3 pt-5 pb-2 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent text-sm"
               placeholder=" "
             />
             <label
@@ -79,7 +79,7 @@ const LoginForm = () => {
             disabled={loading}
             className={`w-full py-2 rounded-md font-semibold text-white transition-all ${
               loading
-                ? "bg-gray-400 cursor-not-allowed"
+                ? "bg-orange-300 cursor-not-allowed"
                 : "bg-orange-500 hover:bg-orange-600"
             }`}
           >
@@ -87,9 +87,9 @@ const LoginForm = () => {
           </button>
         </form>
 
-        <p className="mt-6 text-center text-sm text-gray-600">
+        <p className="mt-6 text-center text-sm text-gray-700">
           Não tem conta?
-          <a href="/register" className="text-orange-600 hover:underline ml-1">
+          <a href="/register" className="text-orange-700 hover:underline ml-1">
             Cadastre-se
           </a>
         </p>
