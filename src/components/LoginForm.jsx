@@ -33,9 +33,9 @@ const LoginForm = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-orange-400 to-orange-600">
+    <div className="min-h-screen flex items-center justify-center  ">
       <div className="bg-white p-10 rounded-xl shadow-2xl w-full max-w-md">
-        <h2 className="text-3xl font-bold text-center mb-8 text-gray-800">Bem-vindo de volta 👋</h2>
+        <h2 className="text-3xl font-bold text-center mb-8 text-gray-800">Bem-vindo de volta </h2>
 
         <form onSubmit={handleSubmit} className="space-y-6">
           <div className="relative">

@@ -7,9 +7,9 @@ const LoginPage = () => {
 
     return( 
             <>
-                <div className="flex flex-col min-h-screen">
+                <div className="flex flex-col min-h-screen ">
                     <Navbar/>
-                    <div className="flex-grow flex items-center justify-center bg-gray-50">
+                    <div className="flex-grow flex items-center justify-center-full bg-gray-50">
                       <LoginForm/>
                     </div>
                         <Footer />
